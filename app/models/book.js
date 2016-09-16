@@ -1,8 +1,13 @@
 import DS from 'ember-data';
 
+const {
+  attr,
+  belongsTo
+} = DS;
+
 export default DS.Model.extend({
-  title: DS.attr('string'),
-  price: DS.attr('number'),
-  author: DS.belongsTo('author'),
-  publisher: DS.belongsTo('publisher')
+  title: attr('string'),
+  price: attr('number'),
+  author: belongsTo('author', { async: true, inverse: 'books' }),
+  publisher: belongsTo('publisher', { polymorphic: true, async: true, inverse: 'published' })
 });
