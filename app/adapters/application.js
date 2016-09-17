@@ -5,12 +5,8 @@ const {
   JSONAPIAdapter
 } = DS;
 
-const {
-  String
-} = Ember;
-
 export default JSONAPIAdapter.extend({
   pathForType(type){
-    return String.pluralize(String.underscore(type));
+    return Ember.String.pluralize(Ember.String.underscore(type));
   }
 });
