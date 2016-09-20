@@ -3,8 +3,10 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   actions: {
     open() {
-      Ember.set(this, 'isShowingModal', true);
-      Ember.get(this, 'blurBackground')(true);
+      Ember.get(this, 'book').reload().then( () => {
+        Ember.set(this, 'isShowingModal', true);
+        Ember.get(this, 'blurBackground')(true);
+      });
     },
 
     close() {
