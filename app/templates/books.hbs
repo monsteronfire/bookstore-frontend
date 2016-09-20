@@ -1,1 +1,5 @@
-{{outlet}}
+<ul>
+  {{#each books as |book|}}
+    {{book-cover book=book}}
+  {{/each}}
+</ul>
