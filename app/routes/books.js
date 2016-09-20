@@ -7,5 +7,11 @@ export default Ember.Route.extend({
 
   setupController(controller, model) {
     Ember.set(controller, 'books', model);
+  },
+
+  actions: {
+    blurBackground(blur) {
+      this.controllerFor('application').set('blur', blur);
+    }
   }
 });
